@@ -42,3 +42,9 @@ function displayProducts(products) {
   });
 }
 
+function handleError(error) {
+  console.log("An error occurred:", error.message);
+}
+
+fetchProductsThen();   // Logs names to the console
+fetchProductsAsync();  // displays products on the page
