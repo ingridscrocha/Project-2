@@ -20,3 +20,25 @@ async function fetchProductsAsync() {
     handleError(error); // If something goes wrong
   }
 }
+
+function displayProducts(products) {
+  const container = document.getElementById('product-container');
+
+  const firstFive = products.slice(0, 5);
+
+  firstFive.forEach(product => {
+    const { name, price, image } = product;
+
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    productCard.innerHTML = `
+      <img src="${image}" alt="${name}" />
+      <h3>${name}</h3>
+      <p>$${(price / 100).toFixed(2)}</p>
+    `;
+
+    container.appendChild(productCard);
+  });
+}
+
